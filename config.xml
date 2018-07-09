@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<import resource="./config2.xml" />
+	<!-- spring三种注入方式：setter注入、构造注入、接口注入 接口注入是通过实现接口给实现类的属性赋值 -->
+	<!-- 使用何种注入方式就要看是在创建对象时就准备好所有资源还是创建好对象后在准备资源 -->
+	<!-- setter注入 -->
+	<!-- <bean id="hello" class="lcm.spring.bean.HelloWorld" scope="singleton"> 
+		<property name="message" value="springtest"/> </bean> -->
+
+	<!-- 构造注入 scope作用有singleton单例、prototype多例 request表示该针对每一次HTTP请求都会产生一个新的bean，同时该bean仅在当前HTTP 
+		request内有效 session作用域表示该针对每一次HTTP请求都会产生一个新的bean，同时该bean仅在当前HTTP session内有效 
+		默认为单例 -->
+	<!-- <bean id="hello" class="lcm.spring.bean.HelloWorld" scope="singleton" 
+		> <constructor-arg index="0" value="springtest"></constructor-arg> </bean> -->
+
+	<!-- <bean id="hello" class="lcm.spring.bean.HelloWorld" depends-on="date" 
+		scope="singleton" > <constructor-arg index="0" value="null"></constructor-arg> 
+		<constructor-arg index="1" ref="date"></constructor-arg> </bean> <bean id="date" 
+		class="java.util.Date"></bean> -->
+
+
+	<!-- bean初始化设置 通过 lcm.spring.bean.HelloWorld中init方法完成属性信息设置 -->
+	<!-- <bean id="hello" class="lcm.spring.bean.HelloWorld" init-method="init" 
+		scope="singleton" > </bean> -->
+
+	<!-- bean初始化设置 通过在代码中实现initialingbean接口来初始化bean -->
+	<!-- <bean id="hello" class="lcm.spring.bean.HelloWorld" > <property name="message" 
+		value="myhtest"></property> <property name="date" ref="date"></property> 
+		</bean> -->
+	<bean name="hello" class="lcm.spring.bean.HelloWorld">
+		<property name="message" value="message"></property>
+		<property name="date" ref="date"></property>
+		<!-- list注入方式 -->
+		<property name="list">
+			<list>
+				<value>
+					a
+				</value>
+				<value>
+					b
+				</value>
+				<value>c</value>
+			</list>
+		</property>
+		<!-- MAP注入 -->
+		<property name="map">
+			<map>
+				<entry key="1" value="1"></entry>
+				<entry key="2" value="2"></entry>
+			</map>
+		</property>
+
+		<!-- set注入 -->
+		<property name="set">
+			<set>
+				<value>set1</value>
+				<value>set2</value>
+			</set>
+		</property>
+	</bean>
+
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	
+	<property name="basenames" value="message"></property>
+	</bean>
+	
+	
+	<!-- 事件传递 lcm.spring.event.Log通过上下文发布时间  lcm.spring.event.LogListener用来监听事件 -->
+	
+	<bean id ="log" class="lcm.spring.event.Log" ></bean>
+	<bean id = "listener" class="lcm.spring.event.LogListener"></bean>
+</beans>

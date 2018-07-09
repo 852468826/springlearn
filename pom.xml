@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>lcm.spring</groupId>
+	<artifactId>lcm.spring.learn</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>lcm.spring.learn Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<!-- 如果你希望你的日志记录与实现无关，你可以使用Apache Commons Logging，它使用抽象的API,这些API都是实现无关的，可以让你在不同的日志记录实现之间切换，而不需要修改你的代码。 
+			只要你使用了Apache Commons Logging，你可以在Apache Commons Logging支持的日志记录实现任意选择（目前主要支持log4j和JDK 
+			Logging API），如果使用log4j，拷贝spring-framework-2.5.6.SEC01\lib\log4j下的包到程序里，一旦程序中检测 
+			log4j在classpath，Commons Logging将会使用log4j作为底层实现。 -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring</artifactId>
+    <version>2.5.6.SEC03</version>
+</dependency>
+		
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.0.7.RELEASE</version>
+		</dependency>
+
+
+	</dependencies>
+	<build>
+		<finalName>lcm.spring.learn</finalName>
+	</build>
+</project>
