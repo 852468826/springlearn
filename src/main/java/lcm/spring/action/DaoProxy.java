@@ -5,7 +5,7 @@ package lcm.spring.action;
  * @author aaaaa
  *
  */
-public class Dao{
+public class DaoProxy{
 
 	
 	private Idao idao; 
@@ -14,7 +14,7 @@ public class Dao{
 		return idao;
 	}
 
-	public Dao(Idao idao) {
+	public DaoProxy(Idao idao) {
 		super();
 		this.idao = idao;
 	}
